@@ -2,7 +2,7 @@
 import time
 
 def time_this(num_runs):
-    def do_it(func):
+    def wrapper(func):
         avg_time = 0
         # print(num_runs)
         for i in range(num_runs):
@@ -15,7 +15,7 @@ def time_this(num_runs):
         avg_time /= num_runs
         print(f"avg_time: {avg_time}")        
         return func
-    return do_it
+    return wrapper
 
 
 @time_this(num_runs=10)
