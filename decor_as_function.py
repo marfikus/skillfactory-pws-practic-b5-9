@@ -7,7 +7,7 @@ import time
 def time_this(num_runs):
     def decorator(func):
         def wrapper(*arg, **kwarg):
-        # arg & kwarg needed in case if function has parameters
+            # arg & kwarg needed in case if function has parameters
             avg_time = 0
             for i in range(num_runs):
                 print(i)
