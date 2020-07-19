@@ -1,3 +1,7 @@
+"""
+Calculating the average execution time of a function
+"""
+import time
 
 # decorator as a class
 class TimeThis:
