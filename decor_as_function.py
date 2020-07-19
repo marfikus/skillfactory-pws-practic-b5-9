@@ -5,6 +5,7 @@ import time
 
 # decorator as a function
 def time_this(num_runs):
+    # num_runs - number of repeats of the function
     def decorator(func):
         def wrapper(*arg, **kwarg):
             # arg & kwarg needed in case if function has parameters
