@@ -9,17 +9,20 @@ class TimeThis:
         self.num_runs = num_runs
 
     def __call__(self, func):
-        avg_time = 0
-        for i in range(self.num_runs):
-            print(i)
-            t0 = time.time()
-            func()
-            t1 = time.time()
-            avg_time += (t1 - t0)
+        def wrapper(*arg, **kwarg):
+            # arg & kwarg needed in case if function has parameters
+            avg_time = 0
+            for i in range(self.num_runs):
+                print(i)
+                t0 = time.time()
+                func(*arg, **kwarg)
+                t1 = time.time()
+                avg_time += (t1 - t0)
 
-        avg_time /= self.num_runs
-        print(f"avg_time: {avg_time}")        
-        return func
+            avg_time /= self.num_runs
+            print(f"avg_time: {avg_time}")        
+            return func
+        return wrapper
 
 @TimeThis(num_runs=10)
 def f():
