@@ -6,6 +6,7 @@ import time
 # decorator as a class
 class TimeThis:
     def __init__(self, num_runs):
+        # num_runs - number of repeats of the function
         self.num_runs = num_runs
 
     def __call__(self, func):
